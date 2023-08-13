@@ -1,918 +1,825 @@
-
-"""Versão 0.1.1 Resultados de um bolão do campeonato brasileiro
+Versão 2.0 - Acrencentei uma divisão para primeiros colocados e a classificação geral abaixo.
 
 
 partidas = [
-    "Fortaleza x Bahia",
-    "Atletico/PR x Botafogo",
-    "Cruzeiro x Atletico/MG",
-    "America/MG x Corinthias",
-    "Santos x Internacional",
-    "Fluminense x Bragantino",
-    "Grêmio x São Paulo",
-    "Londrina x Sport",
-    "Goias x Cuiabá",
-    "Palmeiras x Coritiba"
+"Atletico/MG x Bahia",
+"America/MG x Goias",
+"Corinthians x Coritiba",
+"Grêmio x Fluminense",
+"Guarani x Juventude",
+"Vitoria x Ceara",
+"Flamengo x São Paulo",
+"Fortaleza x Santos",
+"Palmeiras x Cruzeiro",
+"Bragantino x Vasco"
+
+  
 ]
 
 placares_reais = []
 
-# Obter os placares reais das partidas
+# Aqui irei inserir os placares reais das partidas
 for partida in partidas:
     placar = input(f"Digite o placar real da partida {partida}: ")
     placares_reais.append(placar)
 
 palpites = {
-    "Marcelinho": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x0",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x0"
-    },
-    "Diogão": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Rodrigo Rocha": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "2x2",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "0x0",
-        "Palmeiras x Coritiba": "3x1"
-    },  
-    "Paloma": {
-        "Fortaleza x Bahia": "1x2",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x1"
-    },  
-    "Djalma": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-      "Chaguinha": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-     "Anselmo": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-    "Fela": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x2",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-    "Lucas": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "1x0",
-        "America/MG x Corinthias": "2x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-     "Lazaro": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x1"
-    },  
-    "Emacio": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x2",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-    "Ronaldo": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-     "Palhaço": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-     "Vascão": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "2x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-     "Edmar": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x2",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "2x1"
-    }, 
-     "Silvano": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "2x2",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x2",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x1"
-    },  
-     "Meu Berra": {
-        "Fortaleza x Bahia": "1x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "4x1"
-    },  
-     "Japa": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x2",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-     "Buchudinho": {
-        "Fortaleza x Bahia": "1x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "3x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x1"
-    },  
-     "Igor BV": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x2",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x1"
-    },
-      "SGT 1": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x0"
-    },    
-    "SGT 2": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "2x1",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "3x1"
-    },    
-    "Fogo Jardim": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "2x0"
-    },    
-    "Jardim Fogo": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "2x1",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },   
-    "Valéria": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "0x2",
-        "Palmeiras x Coritiba": "3x1"
-    },     
-      "Lula": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x2",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-      "Jesus": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },        
-      "Gordinho Moto TAX": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "2x0"
-    },        
-      "Gabriel": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "2x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    },    
-      "Gabriel 2": {
-        "Fortaleza x Bahia": "1x2",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "2x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x0"
-    },   
-      "Romenigue": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x3",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-      "Ticofe": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x2",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    },       
-      "Luiz Fabiano": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-      "Felipe": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "2x2",
-        "America/MG x Corinthias": "1x3",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "0x1",
-        "Palmeiras x Coritiba": "2x0"
-    },      
-      "Almir": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x0",
-        "Goias x Cuiabá": "1x2",
-        "Palmeiras x Coritiba": "3x0"
-    },     
-      "Ojuara 31": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "2x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    }, 
-      "Allyn": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "0x1",
-        "Palmeiras x Coritiba": "3x0"
-    },    
-      "Moleque": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "2x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "4x1"
-    },  
-      "Nixon": {
-        "Fortaleza x Bahia": "1x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "2x0"
-    },  
-      "Dudeca": {
-        "Fortaleza x Bahia": "1x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x0",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "1x0"
-    },  
-      "Dida 1": {
-        "Fortaleza x Bahia": "1x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x2",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x1"
-    },     
-      "Dida 2": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },                
-      "Selmo 2": {
-        "Fortaleza x Bahia": "1x1",
-        "Atletico/PR x Botafogo": "0x1",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "2x0"
-    },     
-      "Acassio": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x2",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "3x0",
-        "Palmeiras x Coritiba": "4x0"
-    },   
-      "Neta": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x2",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "3x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "2x0",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x1"
-    },                               
-      "Assis Chorão": {
-        "Fortaleza x Bahia": "3x0",
-        "Atletico/PR x Botafogo": "2x0",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "2x0",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "3x1",
-        "Londrina x Sport": "1x3",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "4x0"
-    },        
-      "Rafael Xavier": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "2x1",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "0x0",
-        "Londrina x Sport": "0x0",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },      
-      "Roniel": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x0"
-    },       
-      "Novo do Bolo 1": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "3x0",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "0x1",
-        "Grêmio x São Paulo": "3x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "3x1",
-        "Palmeiras x Coritiba": "3x0"
-    },  
-      "Novo do Bolo 2": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "3x1"
-    },       
-      "Novinho  Preto": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "2x0",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "4x2",
-        "Londrina x Sport": "1x3",
-        "Goias x Cuiabá": "4x1",
-        "Palmeiras x Coritiba": "3x0"
-    },    
-      "Rodrigo BB": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "0x0",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "3x0"
-    },   
-      "Diego": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "0x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "0x1",
-        "Palmeiras x Coritiba": "3x1"
-    },             
-      "Yan": {
-        "Fortaleza x Bahia": "1x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x0",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },   
-      "Januncio": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "3x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "4x0"
-    },    
-      "Luciano": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "0x1",
-        "Cruzeiro x Atletico/MG": "0x0",
-        "America/MG x Corinthias": "0x2",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "0x3",
-        "Grêmio x São Paulo": "0x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "4x0"
-    },      
-      "Dedé 1": {
-        "Fortaleza x Bahia": "1x1",
-        "Atletico/PR x Botafogo": "0x2",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "1x3",
-        "Santos x Internacional": "0x2",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "2x1",
-        "Goias x Cuiabá": "0x1",
-        "Palmeiras x Coritiba": "3x0"
-    },      
-      "Dedé 2": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "3x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "2x0",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "4x0"
-    },
-    "Mário": {
-        "Fortaleza x Bahia": "1x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "0x2",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },
-    "Petinha": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "0x2",
-        "Fluminense x Bragantino": "3x0",
-        "Grêmio x São Paulo": "3x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Nenzão 1": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Nenzão 2": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "2x0",
-        "America/MG x Corinthias": "0x0",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "1x2",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Higor Esporte": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Naldo Naja": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "1x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },
-     "Edmar Motorista": {
-        "Fortaleza x Bahia": "3x0",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "0x0",
-        "America/MG x Corinthias": "1x3",
-        "Santos x Internacional": "2x0",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "4x0"
-    },
-    "Nanin": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "2x2",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x0",
-        "Londrina x Sport": "2x1",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Jacinto Severo": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x1"
-    },
-    "Narinha": {
-        "Fortaleza x Bahia": "3x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "1x1",
-        "Santos x Internacional": "0x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "4x0"
-    },
-    "Marcelo": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "1x2",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "1x1",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "2x1",
-        "Palmeiras x Coritiba": "4x0"
-    },
-    "Paulo Nunes": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "2x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x2",
-        "Santos x Internacional": "2x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "2x1",
-        "Londrina x Sport": "1x1",
-        "Goias x Cuiabá": "1x0",
-        "Palmeiras x Coritiba": "3x1"
-    },
-    "Wilson": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "2x0",
-        "Cruzeiro x Atletico/MG": "3x1",
-        "America/MG x Corinthias": "2x0",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x1",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "0x0",
-        "Palmeiras x Coritiba": "3x0"
-    },
-    "Nem Melo 1": {
-        "Fortaleza x Bahia": "2x1",
-        "Atletico/PR x Botafogo": "1x1",
-        "Cruzeiro x Atletico/MG": "2x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "2x1",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "0x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "3x1"
-    },
-    "Nem melo 2": {
-        "Fortaleza x Bahia": "2x0",
-        "Atletico/PR x Botafogo": "0x1",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "1x0",
-        "Santos x Internacional": "1x1",
-        "Fluminense x Bragantino": "2x0",
-        "Grêmio x São Paulo": "1x2",
-        "Londrina x Sport": "1x2",
-        "Goias x Cuiabá": "1x1",
-        "Palmeiras x Coritiba": "2x0"
-    },
-    "Selmo 1": {
-        "Fortaleza x Bahia": "1x0",
-        "Atletico/PR x Botafogo": "1x0",
-        "Cruzeiro x Atletico/MG": "1x1",
-        "America/MG x Corinthias": "0x1",
-        "Santos x Internacional": "0x0",
-        "Fluminense x Bragantino": "1x0",
-        "Grêmio x São Paulo": "1x0",
-        "Londrina x Sport": "0x1",
-        "Goias x Cuiabá": "2x0",
-        "Palmeiras x Coritiba": "2x0"
-    }
-}
+       "Bruno": {
 
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"1x2",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "0x2"
+       }  ,
+        "Lula": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"0x2",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "2x0"
+       },
+      "Narinha": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"3x0",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"0x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Gordinho": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Fela": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x0"    
+      },
+         "Marcelinho": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x0",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Rodrigo BB": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"0x0",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "3x0"    
+      },
+         "Diego": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x0",
+"Fortaleza x Santos":"1x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Nixon": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"1x0",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "1x0"
+      },
+         "Emarcio": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"1x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x0"    
+      },
+         "Paulo Nunes": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"2x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Vascão": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"1x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Edmar": {
+
+"Atletico/MG x Bahia":"3x1",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "1x1"    
+      },
+         "Bolsonaro": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Bolsonaro 2": {
+
+"Atletico/MG x Bahia":"3x1",
+"America/MG x Goias":"3x1",
+"Corinthians x Coritiba":"3x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"3x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "3x1"    
+      },
+         "Rafael Xavier": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"0x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"3x0",
+"Bragantino x Vasco": "3x1"    
+      },
+         "Deca": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"3x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Thales": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"1x2",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Palhaço": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"1x2",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Palhaço": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"0x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"0x0",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "3x1"    
+      },
+         "Araujo 31": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x2",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Almir": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"0x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"0x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Novo do Bolo": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"2x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Novo do Bolo 2": {
+
+"Atletico/MG x Bahia":"3x1",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"3x1",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "3x0"    
+      },
+         "Roniel": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"3x1",
+"Grêmio x Fluminense":"1x0",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"0x0",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Ticofe": {
+
+"Atletico/MG x Bahia":"3x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "3x0"    
+      },
+         "Edmar Motorista": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"0x1",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x3",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "1x1"    
+      },
+         "Mario": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"3x0",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Jacinto": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Nem Melo": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"0x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"1x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Selmo": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"0x1",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"0x1",
+"Palmeiras x Cruzeiro":"1x0",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Selmo 2": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"0x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x0",
+"Fortaleza x Santos":"0x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Fabiano Caico": {
+
+"Atletico/MG x Bahia":"0x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"0x2",
+"Grêmio x Fluminense":"0x0",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"0x0",
+"Palmeiras x Cruzeiro":"0x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Rodrigo Roca": {
+
+"Atletico/MG x Bahia":"3x2",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x2",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"2x3",
+"Vitoria x Ceara":"1x2",
+"Flamengo x São Paulo":"3x2",
+"Fortaleza x Santos":"1x2",
+"Palmeiras x Cruzeiro":"2x3",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Fogo Jardim": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Jardim Fogo": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "3x0"    
+      },
+         "Marcelo": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"3x0",
+"Bragantino x Vasco": "3x0"    
+      },
+         "Valeria": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"0x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Heron": {
+
+"Atletico/MG x Bahia":"3x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x2",
+"Fortaleza x Santos":"1x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Assis Chorão": {
+
+"Atletico/MG x Bahia":"3x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"0x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "3x1"    
+      },
+         "Paloma": {
+
+"Atletico/MG x Bahia":"1x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"1x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"1x2",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x2"    
+      },
+         "Mica": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"0x1",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Silvano": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"1x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "1x1"    
+      },
+         "Meu Berra": {
+
+"Atletico/MG x Bahia":"1x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"0x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"4x1",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Chagas PM": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"3x1",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Djalma": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Lazaro": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"0x2",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Luciano Chorão": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"2x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"2x2",
+"Guarani x Juventude":"0x2",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"0x2",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Chico Roque": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x2",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Nino": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"0x2",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "0x1"    
+      },
+         "Nino 2": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"3x1",
+"Corinthians x Coritiba":"1x1",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"1x0",
+"Vitoria x Ceara":"0x2",
+"Flamengo x São Paulo":"0x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"1x1",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Ronaldo": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"3x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"0x2",
+"Vitoria x Ceara":"1x2",
+"Flamengo x São Paulo":"0x2",
+"Fortaleza x Santos":"1x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "1x2"    
+      },
+         "Lucas FLA": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"0x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Venceslau": {
+
+"Atletico/MG x Bahia":"1x2",
+"America/MG x Goias":"1x2",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"0x1",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"3x1",
+"Palmeiras x Cruzeiro":"3x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Naldo Naja": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"1x2",
+"Vitoria x Ceara":"2x0",
+"Flamengo x São Paulo":"2x2",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x1"    
+      },
+         "Allyn": {
+
+"Atletico/MG x Bahia":"2x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"3x0",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"2x1",
+"Vitoria x Ceara":"1x1",
+"Flamengo x São Paulo":"2x0",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Junior Naja": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"2x0",
+"Grêmio x Fluminense":"2x0",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"2x2",
+"Flamengo x São Paulo":"1x2",
+"Fortaleza x Santos":"2x0",
+"Palmeiras x Cruzeiro":"3x0",
+"Bragantino x Vasco": "2x0"    
+      },
+         "Dida": {
+
+"Atletico/MG x Bahia":"2x1",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"1x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"0x1",
+"Flamengo x São Paulo":"1x1",
+"Fortaleza x Santos":"1x0",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "2x1"    
+      },
+         "Dida 2": {
+
+"Atletico/MG x Bahia":"1x0",
+"America/MG x Goias":"1x0",
+"Corinthians x Coritiba":"2x1",
+"Grêmio x Fluminense":"1x1",
+"Guarani x Juventude":"0x0",
+"Vitoria x Ceara":"1x0",
+"Flamengo x São Paulo":"2x1",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x1",
+"Bragantino x Vasco": "1x0"    
+      },
+   "Vitoriano": {
+
+"Atletico/MG x Bahia":"3x1",
+"America/MG x Goias":"2x1",
+"Corinthians x Coritiba":"3x0",
+"Grêmio x Fluminense":"2x1",
+"Guarani x Juventude":"2x0",
+"Vitoria x Ceara":"2x1",
+"Flamengo x São Paulo":"3x1",
+"Fortaleza x Santos":"1x2",
+"Palmeiras x Cruzeiro":"3x1",
+"Bragantino x Vasco": "3x1"    
+      },
+         "Vitoriano 2": {
+
+"Atletico/MG x Bahia":"3x0",
+"America/MG x Goias":"1x1",
+"Corinthians x Coritiba":"3x0",
+"Grêmio x Fluminense":"1x2",
+"Guarani x Juventude":"1x1",
+"Vitoria x Ceara":"1x2",
+"Flamengo x São Paulo":"2x2",
+"Fortaleza x Santos":"2x1",
+"Palmeiras x Cruzeiro":"2x0",
+"Bragantino x Vasco": "3x0"    
+      },
+
+
+}
 def calcular_pontuacao(placar_real, placar_palpite):
     pontos = 0
     if placar_real == placar_palpite:
@@ -929,17 +836,29 @@ classificacao = {}
 
 for palpite, palpites_usuario in palpites.items():
     pontos_total = 0
-    print("\n")
-    print(f"\nPalpites de {palpite}:")
-    for partida, placar_palpite in palpites_usuario.items():
-        print(f"{partida} / {placar_palpite}", end=" ")
-        placar_real = placares_reais[partidas.index(partida)]
+    for partida, placar_real in zip(partidas, placares_reais):
+        placar_palpite = palpites_usuario[partida]
         pontos = calcular_pontuacao(placar_real, placar_palpite)
         pontos_total += pontos
     classificacao[palpite] = pontos_total
+
 classificacao_ordenada = sorted(classificacao.items(), key=lambda x: x[1], reverse=True)
 
-print("\n")
-print("\nClassificação:")
-for posicao, (palpite, pontos) in enumerate(classificacao_ordenada, start=1):
+primeiros_colocados = [classificacao_ordenada[0]]
+for posicao, (palpite, pontos) in enumerate(classificacao_ordenada[1:], start=1):
+    if pontos == primeiros_colocados[0][1]:
+        primeiros_colocados.append((palpite, pontos))
+    else:
+        break
+
+print("Primeiros colocados:")
+for posicao, (palpite, pontos) in enumerate(primeiros_colocados, start=1):
+    print(f"{posicao}. {palpite}: {pontos} pontos")
+
+# A exibição de todos os placares dos primeiros é removida aqui
+
+classificacao_geral = sorted(classificacao.items(), key=lambda x: x[1], reverse=True)
+
+print("Classificação final:")
+for posicao, (palpite, pontos) in enumerate(classificacao_geral, start=1):
     print(f"{posicao}. {palpite}: {pontos} pontos")
